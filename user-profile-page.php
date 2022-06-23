@@ -1,9 +1,19 @@
 <?php
 session_start();
+// PAGE TITLE
+$page = "user-profile-page";
 
+if (!empty($_GET['page'])) {
+    $pagPage = $_GET['page'];
+} else {
+    $pagPage = 1;
+}
+// REQUIRE CLASSES
 require_once __DIR__ . "/Models/Model.php";
 require_once __DIR__ . "/Models/Product.php";
-require_once __DIR__ . "/Models/User.php";
+require_once __DIR__ . "/Lib/ShoppingCart.php";
+require_once __DIR__ . "/Lib/ShoppingCartItem.php";
+
 
 // HEADER
 require __DIR__ . "/views/_layout/v-header.php";
@@ -12,8 +22,12 @@ require __DIR__ . "/views/v-user-profile.php";
 // FOOTER
 require __DIR__ . "/views/_layout/v-footer.php";
 
+// USING MODELS
+use Lib\ShoppingCart\ShoppingCart;
 use Models\Model\Model;
+use Models\Product\Product;
 use Models\User\User;
+
 
 $systemErrors = [
     'name' => '',
@@ -81,12 +95,3 @@ if (isset($_POST['save'])) {
     $newUser->getGender($gender);
     $newUser->UpdateUserInformation($name, $last_name, $password, $email, $gender);
 }
-/*
-$productId = 127;
-
-$product = Product::getOneProductById($productId);
-/*foreach ($product as $prod) {
-    echo $prod['title'];
-}
-var_dump($product);
-*/

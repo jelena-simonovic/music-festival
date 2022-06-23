@@ -92,7 +92,7 @@ class User extends Model
                     $_SESSION['pass'] = $info['pass'];
                     $_SESSION['gender'] = $info['gender'];
                 }
-                //header('Location: ./user-profile-page.php');
+                header('Location: ./user-profile-page.php');
             } else {
                 echo "There is no account with this email! <br>";
                 echo "<a href='./register-page.php'> REGISTER NOW </a>";
