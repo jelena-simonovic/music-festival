@@ -11,7 +11,7 @@
         <span id="secs"></span>
     </div>
 
-    <a href="./register-page.php" class="cta"> GET YOUR VIP PASS </a>
+    <a href="./login-page.php" class="cta"> GET YOUR VIP PASS </a>
     <div class="second"></div>
     <div class="container bg-secondary">
         <section class="my-5">

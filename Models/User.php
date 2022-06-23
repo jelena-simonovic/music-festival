@@ -99,4 +99,20 @@ class User extends Model
             }
         }
     }
+
+    public function UpdateUserInformation($name, $last_name, $password, $email, $gender)
+    {
+        parent::connection('users');
+        if (!empty($email) && !empty($password)) {
+            $checkuser = parent::$connection->query("SELECT * FROM users WHERE
+            email='$email' and pass='$password';");
+            $result = $checkuser->rowCount();
+            var_dump($result);
+            if ($result == true) {
+                $st = parent::$connection->prepare("UPDATE `users` SET
+                 `users_name`='$name',`last_name`='$last_name',`pass`='$password',`email`='$email',`gender`='$gender';");
+                $st->execute();
+            }
+        }
+    }
 }

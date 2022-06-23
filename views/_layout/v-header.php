@@ -45,6 +45,16 @@
                             <a class="nav-link text-light fw-bold">About Us</a>
                         </li>
                         <li class="nav-item">
+                            <a class="text-light fw-bold
+                                nav-link
+                                <?php if ($page == 'all-products-page') {
+                                    echo htmlspecialchars('active');
+                                } ?>
+                                " href="./contact-us-page.php">
+                                Contact Us
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="text-light nav-link fw-bold" href="<?php
                                                                             if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
                                                                                 echo "./user-profile-page.php";
