@@ -94,8 +94,7 @@ class User extends Model
                 }
                 header('Location: ./user-profile-page.php');
             } else {
-                echo "There is no account with this email! <br>";
-                echo "<a href='./register-page.php'> REGISTER NOW </a>";
+                header('Location: ./register-page.php');
             }
         }
     }
