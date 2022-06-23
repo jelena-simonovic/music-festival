@@ -46,13 +46,13 @@
                         </li>
                         <li class="nav-item">
                             <a class="text-light nav-link fw-bold" href="<?php
-                                                                            if (isset($_SESSION) && $_SESSION['login'] == true) {
+                                                                            if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
                                                                                 echo "./user-profile-page.php";
-                                                                            } else if ($_SESSION['login'] == false) {
+                                                                            } else if (!isset($_SESSION['login']) || $_SESSION['login'] == false) {
                                                                                 echo "./login-page.php";
                                                                             }
                                                                             ?>">
-                                <?php if (isset($_SESSION) && $_SESSION['login'] == true) {
+                                <?php if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
                                     echo "Profile";
                                 } else {
                                     echo "Login";
@@ -60,7 +60,7 @@
                                 ?>
                             </a>
                         </li>
-                        <?php if (isset($_SESSION) && $_SESSION['login'] == true) { ?>
+                        <?php if (isset($_SESSION['login']) && $_SESSION['login'] == true) { ?>
                             <li class="nav-item">
                                 <form action="./login-page.php" method="GET">
                                     <button class="nav-link text-light fw-bold" name="logout" type="submit">Log out</button>
