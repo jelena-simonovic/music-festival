@@ -36,7 +36,7 @@
                     <h4 class="pb-3"> Create your own T-shirt design!</h4>
                     <div class="mt-2">
                         <p class="pb-3"> Release your inner artist and order a T-shit that is just right for you.</p>
-                        <a href="./register-page.php" class="cta"> CREATE DESIGN </a>
+                        <a href="./login-page.php" class="cta"> CREATE DESIGN </a>
                     </div>
                 </div>
             </div>

@@ -1,9 +1,9 @@
 <main>
     <?php
     require_once __DIR__ . "./../Models/Model.php";
-    require_once __DIR__ . "./../Models/Register.php";
+    require_once __DIR__ . "./../Models/User.php";
 
-    use Models\Register\Register;
+    use Models\User\User;
 
     $systemErrors = [
         'name' => '',
@@ -63,7 +63,7 @@
             } else if (empty($gender)) {
                 $systemErrors['gender'] = "Select your gender!";
             }
-            $newUser = new Register($name, $last_name, $password, $email, $gender);
+            $newUser = new User();
             $newUser->Register($name, $last_name, $password, $email, $gender);
         }
     } catch (\Throwable $th) {
