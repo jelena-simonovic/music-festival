@@ -15,9 +15,9 @@
                     <?php $total = 0; ?>
                     <?php foreach ($items as $item) { ?>
                         <?php
-                            $subtotal = $item->getSubtotal();
-                            $total += $subtotal;
-                            ?>
+                        $subtotal = $item->getSubtotal();
+                        $total += $subtotal;
+                        ?>
                         <tr>
                             <td><input type="checkbox" name="remove[]" value="<?php echo htmlspecialchars($item->getProduct()->id); ?>"></td>
                             <td><?php echo htmlspecialchars($item->getProduct()->title); ?></td>
@@ -34,8 +34,8 @@
                 </tbody>
             </table>
             <div class="d-flex justify-content-end">
-                <button class="btn btn-danger m-2" type="submit">Remove Selected</button>
-                <a href="./checkout-page.php" class="btn btn-success m-2">Checkout</a>
+                <button class="show m-2" type="submit">Remove Selected</button>
+                <a href="./checkout-page.php" class="add m-2">Checkout</a>
             </div>
         </form>
     </div>

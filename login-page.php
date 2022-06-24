@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$page = 'login-page';
+
 require_once __DIR__ . "/Models/Model.php";
 require_once __DIR__ . "/Models/User.php";
 

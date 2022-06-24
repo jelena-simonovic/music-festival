@@ -51,7 +51,7 @@
             </div>
         </div>
         </div>
-        <button type="submit" class="btn btn-secondary mb-1" name="change" value="change"> Change information </button>
-        <button type="submit" class="btn btn-secondary mb-1" name="save" value="save"> SAVE </button>
+        <button type="submit" class="show mb-1" name="change" value="change"> Change information </button>
+        <button type="submit" class="add mb-1" name="save" value="save"> SAVE </button>
     </form>
 </main>

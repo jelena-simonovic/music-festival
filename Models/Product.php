@@ -24,6 +24,7 @@ class Product extends Model
         $this->description = $product['description'];
         $this->status = $product['status'];
         $this->price = $product['price'];
+        $this->category = $product['category'];
         $this->img = $product['img'];
     }
 
@@ -43,16 +44,25 @@ class Product extends Model
     {
         $availabaleProducts = [];
         foreach (self::getAllProducts() as $product) {
+            if ($product->status == 1 && $product->category != "ticket" && $product->category != "vip_ticket") {
+                $availabaleProducts[] = $product;
+            }
+        }
+        return $availabaleProducts;
+    }
+    public static function getAvailableProductsPlusTickets($page = null)
+    {
+        $availabaleProducts = [];
+        foreach (self::getAllProducts() as $product) {
             if ($product->status == 1) {
                 $availabaleProducts[] = $product;
             }
         }
         return $availabaleProducts;
     }
-
     public static function getOneProductById($id)
     {
-        $products = self::getAvailableProducts();
+        $products = self::getAvailableProductsPlusTickets();
         foreach ($products as $product) {
             if ($product->id == $id) {
                 return $product;
@@ -74,8 +84,6 @@ class Product extends Model
         }
         return $filteredProducts;
     }
-
-
 
     public static function sortProductBy($sortBy, $products = [])
     {
@@ -152,5 +160,25 @@ class Product extends Model
                 }
             }
         }
+    }
+    public static function getVipTicket()
+    {
+        $availabaleProducts = [];
+        foreach (self::getAllProducts() as $product) {
+            if ($product->category == "vip_ticket") {
+                $availabaleProducts[] = $product;
+            }
+        }
+        return $availabaleProducts;
+    }
+    public static function getTicket()
+    {
+        $availabaleProducts = [];
+        foreach (self::getAllProducts() as $product) {
+            if ($product->category == "ticket") {
+                $availabaleProducts[] = $product;
+            }
+        }
+        return $availabaleProducts;
     }
 }

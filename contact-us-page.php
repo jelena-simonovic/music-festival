@@ -1,8 +1,7 @@
 <?php
-
-use Models\Contacts\Contacts;
-
 session_start();
+
+$page = "contact-us-page";
 // PAGE TITLE
 
 require_once __DIR__ . "/Models/Model.php";

@@ -3,11 +3,6 @@ session_start();
 // PAGE TITLE
 $page = "user-profile-page";
 
-if (!empty($_GET['page'])) {
-    $pagPage = $_GET['page'];
-} else {
-    $pagPage = 1;
-}
 // REQUIRE CLASSES
 require_once __DIR__ . "/Models/Model.php";
 require_once __DIR__ . "/Models/User.php";

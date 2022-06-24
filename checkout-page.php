@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$page = "checkout-page";
+
 if (empty($_SESSION['cart'])) {
     header("Location: ./all-products-page.php");
 }

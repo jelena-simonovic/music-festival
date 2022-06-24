@@ -76,7 +76,7 @@
             </div>
         </div>
         </div>
-        <button type="submit" class="btn btn-success mb-1" name="contact" value="contact">Send Message</button>
+        <button type="submit" class="add mb-1" name="contact" value="contact">Send Message</button>
     </form>
 
 </main>

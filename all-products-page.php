@@ -21,7 +21,8 @@ use Lib\ShoppingCart\ShoppingCart;
 try {
     // GET PRODUCTS
     $products = Product::getAvailableProducts($pagPage);
-
+    $getTicket = Product::getTicket();
+    $getVipTicket = Product::getVipTicket();
     // TERM AND SORT
     $term = "";
     $sort = "";

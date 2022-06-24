@@ -1,26 +1,7 @@
 <?php
-/*
-session_start();
-// PAGE TITLE
-
-require_once __DIR__ . "/Models/Model.php";
-require_once __DIR__ . "/Models/Product.php";
-
-// HEADER
-require __DIR__ . "/views/_layout/v-header.php";
-// PAGE
-require __DIR__ . "/views/v-create-design.php";
-// FOOTER
-require __DIR__ . "/views/_layout/v-footer.php";
-
-use Models\Product\Product;
-
-
-$pagPage = 1;
-$all = Product::getAvailableProducts($pagPage);
-*/
 
 session_start();
+
 // PAGE TITLE
 $page = "create-design-page";
 

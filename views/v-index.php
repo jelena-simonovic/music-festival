@@ -4,6 +4,7 @@
         <div class="glitch" data-text="ARE YOU READY?"> ARE YOU READY?
         </div>
     </div>
+    <p> This year's SONUS Music Fest is set to open in: </p>
     <div class="countdown">
         <span id="days"></span>
         <span id="hours"></span>
@@ -11,12 +12,77 @@
         <span id="secs"></span>
     </div>
 
-    <a href="./login-page.php" class="cta"> GET YOUR VIP PASS </a>
-    <div class="second"></div>
-    <div class="container bg-secondary">
+    <a href="<?php
+                if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+                    echo "./user-profile-page.php";
+                } else if (!isset($_SESSION['login']) || $_SESSION['login'] == false) {
+                    echo "./login-page.php";
+                }
+                ?>" class="cta"> GET YOUR VIP PASS </a>
+    <div class="second">
+        <img src="./public/theme/img/banner.jpg" alt="">
+    </div>
+    <div class="tickets">
+        <h2>GET TICKETS</h2>
+        <div class="row">
+            <?php foreach ($getTicket as $ticket) { ?>
+                <article class="single-product col-6 row mb-5 mt-5">
+                    <div class='col-12 text-center'>
+                        <img src="<?php echo htmlspecialchars($ticket->img); ?>" alt="" width="" height="200" class="col-12">
+                    </div>
+                    <div class='col-12 text-center'>
+                        <h6><?php echo htmlspecialchars($ticket->title); ?></h6>
+                        <p>PRICE: <?php echo htmlspecialchars($ticket->price); ?> $</p>
+                        <a class="show" href="./single-product-page.php?product=<?php echo htmlspecialchars($ticket->id) ?>">Show Product</a>
+                        <button form="add-to-cart-<?php echo htmlspecialchars($ticket->id); ?>" class="add">Add to Cart</button>
+                        <form id="add-to-cart-<?php echo htmlspecialchars($ticket->id); ?>" action="./all-products-page.php" method="post">
+                            <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($ticket->id); ?>">
+                        </form>
+                    </div>
+                </article>
+            <?php } ?>
+            <?php if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+                foreach ($getVipTicket as $vipTicket) { ?>
+                    <article class="single-product col-6 row mb-5 mt-5">
+                        <div class='col-12 text-center'>
+                            <img src="<?php echo htmlspecialchars($vipTicket->img); ?>" alt="" width="" height="200" class="col-12">
+                        </div>
+                        <div class='col-12 text-center'>
+                            <h6><?php echo htmlspecialchars($vipTicket->title); ?></h6>
+                            <p>PRICE: <?php echo htmlspecialchars($vipTicket->price); ?> $</p>
+                            <a class="btn btn-success" href="./single-product-page.php?product=<?php echo htmlspecialchars($vipTicket->id) ?>">Show Product</a>
+                            <button form="add-to-cart-<?php echo htmlspecialchars($vipTicket->id); ?>" class="btn btn-secondary">Add to Cart</button>
+                            <form id="add-to-cart-<?php echo htmlspecialchars($vipTicket->id); ?>" action="./all-products-page.php" method="post">
+                                <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($vipTicket->id); ?>">
+                            </form>
+                        </div>
+                    </article>
+            <?php }
+            } ?>
+            <?php if (!isset($_SESSION['login']) || $_SESSION['login'] == false) {
+                foreach ($getVipTicket as $vipTicket) { ?>
+                    <article class="single-product col-6 row mb-5 mt-5">
+                        <div class="text-center">
+                            <img src="<?php echo htmlspecialchars($vipTicket->img); ?>" alt="" width="" height="200" class="col-12">
+                            <div class="mt-5">
+                                <a class="cta col-5" href="<?php
+                                                            if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+                                                                echo "./user-profile-page.php";
+                                                            } else if (!isset($_SESSION['login']) || $_SESSION['login'] == false) {
+                                                                echo "./login-page.php";
+                                                            }
+                                                            ?>"> GET YOUR VIP PASS</a>
+                            </div>
+                        </div>
+                    </article>
+            <?php }
+            } ?>
+        </div>
+    </div>
+    <div class="container">
         <section class="my-5">
             <div class="mb-5">
-                <h2>Most popular merch</h2>
+                <h2 class="pop">POPULAR MERCH</h2>
             </div>
             <div class="row d-flex align-baseline">
                 <?php foreach ($mostProducts as $product) { ?>
@@ -36,7 +102,13 @@
                     <h4 class="pb-3"> Create your own T-shirt design!</h4>
                     <div class="mt-2">
                         <p class="pb-3"> Release your inner artist and order a T-shit that is just right for you.</p>
-                        <a href="./login-page.php" class="cta"> CREATE DESIGN </a>
+                        <a href="<?php
+                                    if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+                                        echo "./create-design-page.php";
+                                    } else if (!isset($_SESSION['login']) || $_SESSION['login'] == false) {
+                                        echo "./login-page.php";
+                                    }
+                                    ?>" class="cta"> CREATE DESIGN </a>
                     </div>
                 </div>
             </div>

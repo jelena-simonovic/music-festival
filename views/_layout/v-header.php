@@ -22,12 +22,12 @@
                     <img src="./public/theme/img/logo.png" alt="logo">
                 </a>
                 <div class="d-flex">
-                    <ul class="navbar-nav">
+                    <ul class="nav nav-tabs">
                         <li class="nav-item">
                             <a class="text-light fw-bold
                                 nav-link
                                 <?php if ($page == 'index') {
-                                    echo htmlspecialchars('active');
+                                    echo htmlspecialchars('active text-dark');
                                 } ?>
                                 " href="./">Home</a>
                         </li>
@@ -35,20 +35,27 @@
                             <a class="text-light fw-bold
                                 nav-link
                                 <?php if ($page == 'all-products-page') {
-                                    echo htmlspecialchars('active');
+                                    echo htmlspecialchars('active text-dark');
                                 } ?>
                                 " href="./all-products-page.php">
                                 Products
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light fw-bold">About Us</a>
+                            <a class="text-light fw-bold
+                                nav-link
+                                <?php if ($page == 'about-us-page') {
+                                    echo htmlspecialchars('active text-dark');
+                                } ?>
+                                " href="./about-us-page.php">
+                                About Us
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="text-light fw-bold
                                 nav-link
-                                <?php if ($page == 'all-products-page') {
-                                    echo htmlspecialchars('active');
+                                <?php if ($page == 'contact-us-page') {
+                                    echo htmlspecialchars('active text-dark');
                                 } ?>
                                 " href="./contact-us-page.php">
                                 Contact Us
@@ -56,17 +63,21 @@
                         </li>
                         <?php if (isset($_SESSION['login']) && $_SESSION['login'] == true) { ?>
                             <li class="nav-item">
-                                <a href="./create-design-page.php" class="nav-link text-light fw-bold">Design</a>
+                                <a href="./create-design-page.php" class="nav-link text-light fw-bold <?php if ($page == 'create-design-page') {
+                                                                                                            echo htmlspecialchars('active text-dark');
+                                                                                                        } ?>">Design</a>
                             </li>
                         <?php } ?>
                         <li class="nav-item">
-                            <a class="text-light nav-link fw-bold" href="<?php
-                                                                            if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
-                                                                                echo "./user-profile-page.php";
-                                                                            } else if (!isset($_SESSION['login']) || $_SESSION['login'] == false) {
-                                                                                echo "./login-page.php";
-                                                                            }
-                                                                            ?>">
+                            <a class="text-light nav-link fw-bold <?php if ($page == 'user-profile-page' || $page == 'login-page') {
+                                                                        echo htmlspecialchars('active text-dark');
+                                                                    } ?>" href="<?php
+                                                                                if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
+                                                                                    echo "./user-profile-page.php";
+                                                                                } else if (!isset($_SESSION['login']) || $_SESSION['login'] == false) {
+                                                                                    echo "./login-page.php";
+                                                                                }
+                                                                                ?>">
                                 <?php if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
                                     echo "Profile";
                                 } else {

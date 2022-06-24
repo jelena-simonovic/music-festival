@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(empty($_SESSION['cart'])) {
+if (empty($_SESSION['cart'])) {
     header("Location: ./all-products-page.php");
 }
 
@@ -17,11 +17,11 @@ use Lib\ShoppingCart\ShoppingCart;
 try {
     $shoppingCart = new ShoppingCart($_SESSION['cart']);
     // REMOVE ITEMS
-    if(!empty($_POST['remove']) && is_array($_POST['remove'])) {
+    if (!empty($_POST['remove']) && is_array($_POST['remove'])) {
         foreach ($_POST['remove'] as $productId) {
             $shoppingCart->removeProduct(Product::getOneProductById($productId));
             $shoppingCart->updateSession();
-            if(empty($_SESSION['cart'])) {
+            if (empty($_SESSION['cart'])) {
                 header("Location: ./all-products-page.php");
             }
         }

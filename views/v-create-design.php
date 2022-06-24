@@ -14,7 +14,7 @@
                     </article>
                 <?php } ?>
                 <div class="row">
-                    <button type="submit" class="btn btn-success col-4" value="<?php echo htmlspecialchars($design->title); ?>">Create Design</button>
+                    <button type="submit" class="show col-4" value="<?php echo htmlspecialchars($design->title); ?>">Create Design</button>
                 </div>
             </div>
         </div>

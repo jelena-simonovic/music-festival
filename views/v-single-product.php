@@ -34,11 +34,11 @@
                         </div>
                     <?php } ?>
                     <input hidden name="product_id" value="<?php echo htmlspecialchars($product->id); ?>">
-                    <button type="submit" class="btn btn-outline-success">Add to Cart</button>
+                    <button type="submit" class="add">Add to Cart</button>
                 </form>
                 <div class="d-flex justify-content-around mt-5">
-                    <a class="btn btn-danger" href="./single-product-page.php?product=<?php echo htmlspecialchars($product->getPrevProductId()); ?>">PREV</a>
-                    <a class="btn btn-warning" href="./single-product-page.php?product=<?php echo htmlspecialchars($product->getNextProductId()); ?>">PREV</a>
+                    <a class="show" href="./single-product-page.php?product=<?php echo htmlspecialchars($product->getPrevProductId()); ?>">PREV</a>
+                    <a class="show" href="./single-product-page.php?product=<?php echo htmlspecialchars($product->getNextProductId()); ?>">PREV</a>
                 </div>
             </div>
 
@@ -53,7 +53,7 @@
                     <div class='col-8'>
                         <h5><?php echo htmlspecialchars($singleRelated->title); ?></h5>
                         <p>PRICE: <?php echo htmlspecialchars($singleRelated->price); ?> $</p>
-                        <a class="btn btn-success" href="./single-product-page.php?product=<?php echo htmlspecialchars($singleRelated->id); ?>">Show Product</a>
+                        <a class="show" href="./single-product-page.php?product=<?php echo htmlspecialchars($singleRelated->id); ?>">Show Product</a>
                     </div>
                 </article>
             <?php } ?>
