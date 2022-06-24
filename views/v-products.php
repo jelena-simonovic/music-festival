@@ -1,21 +1,6 @@
 <main class="mt-5">
     <div class="container">
-        <form class="row" action="./all-products-page.php" method="get">
-            <div class="col-2">
-                <select name="sort-by" id="" class="col-12">
-                    <option value=""> Filter by price </option>
-                    <option value="<?php echo htmlspecialchars(\Models\Product\Product::ORDER_BY_PRICE_ASC) ?>"> Lower to higher </option>
-                    <option value="<?php echo htmlspecialchars(\Models\Product\Product::ORDER_BY_PRICE_DESC) ?>"> Higher to lower </option>
-                </select> <br>
-                <button type="submit" class="btn btn-warning col-6">Search</button>
-            </div>
-        </form>
-        <form class="row" action="./all-products-page.php" method="get">
-            <div class="col-3"></div>
-            <input class="col-5" type="text" name="term" value="<?php echo htmlspecialchars($term); ?>">
-            <button type="submit" class="btn btn-warning col-2">Search</button>
-            <hr class="mt-3">
-        </form>
+        <h2>GET TICKETS</h2>
         <div class="row">
             <?php foreach ($getTicket as $ticket) { ?>
                 <article class="single-product col-6 row mb-5 mt-5">
@@ -70,9 +55,25 @@
             <?php }
             } ?>
         </div>
+        <h2 class="mt-5 mb-5">ALL PRODUCTS</h2>
+        <div class="row mt-5">
+            <form class="row col-4" action="./all-products-page.php" method="get">
+                <select name="sort-by" id="" class="col-4">
+                    <option value=""> Filter by price </option>
+                    <option value="<?php echo htmlspecialchars(\Models\Product\Product::ORDER_BY_PRICE_ASC) ?>"> Lower to higher </option>
+                    <option value="<?php echo htmlspecialchars(\Models\Product\Product::ORDER_BY_PRICE_DESC) ?>"> Higher to lower </option>
+                </select> <br>
+                <button type="submit" class="btn btn-warning col-4">Search</button>
+            </form>
+            <form class="row col-8" action="./all-products-page.php" method="get">
+                <input class="col-5" type="text" name="term" value="<?php echo htmlspecialchars($term); ?>">
+                <button type="submit" class="btn btn-warning col-2">Search</button>
+            </form>
+            <hr class="mt-3">
+        </div>
         <div class="row">
             <?php foreach ($products as $product) { ?>
-                <article class="single-product col-4 row mb-5">
+                <article class="single-product col-4 row mb-5 mt-5">
                     <div class='col-12 text-center'>
                         <img src="<?php echo htmlspecialchars($product->img); ?>" alt="" width="200" height="200">
                     </div>
@@ -87,17 +88,6 @@
                     </div>
                 </article>
             <?php } ?>
-        </div>
-        <div class="text-center">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination d-flex justify-content-center">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-            </nav>
         </div>
     </div>
 </main>

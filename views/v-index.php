@@ -20,6 +20,8 @@
                 }
                 ?>" class="cta"> GET YOUR VIP PASS </a>
     <div class="second">
+        <h2>SONOS MUSIC FEST LINEUP</h2>
+        <p class="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur architecto quibusdam, minima rerum aspernatur molestias quam ad earum mollitia at porro. Et ipsum doloribus eum quis unde officiis, aspernatur qui. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde, tenetur recusandae excepturi modi ipsam totam sed repellendus sapiente nihil officiis quidem nesciunt itaque sequi voluptatum accusamus culpa voluptas aliquid. Ipsa? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam recusandae sapiente atque eveniet praesentium, magni saepe neque. Quod, nihil cum quasi dignissimos, repudiandae ad voluptatibus voluptatem ipsum illum repellendus nemo.</p>
         <img src="./public/theme/img/banner.jpg" alt="">
     </div>
     <div class="tickets">

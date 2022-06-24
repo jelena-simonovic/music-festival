@@ -196,7 +196,6 @@ a:hover {
 }
 
 #designs_cont {
-    background-color: white;
     padding: 2rem 0;
     color: black;
 }
@@ -255,4 +254,29 @@ footer {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     text-decoration: none;
+}
+
+.login_form {
+    display: inline-block;
+    width: 50%;
+    margin-top: 12rem;
+    margin-left: 20rem;
+    margin-bottom: 1rem;
+}
+
+.reg {
+    margin-right: 4rem;
+    margin-bottom: 15rem;
+}
+
+.register_form {
+    display: inline-block;
+    width: 25%;
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+}
+
+.lorem {
+    width: 70%;
+    margin-left: 13%;
 }
