@@ -54,6 +54,11 @@
                                 Contact Us
                             </a>
                         </li>
+                        <?php if (isset($_SESSION['login']) && $_SESSION['login'] == true) { ?>
+                            <li class="nav-item">
+                                <a href="./create-design-page.php" class="nav-link text-light fw-bold">Design</a>
+                            </li>
+                        <?php } ?>
                         <li class="nav-item">
                             <a class="text-light nav-link fw-bold" href="<?php
                                                                             if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
@@ -73,20 +78,19 @@
                         <?php if (isset($_SESSION['login']) && $_SESSION['login'] == true) { ?>
                             <li class="nav-item">
                                 <form action="./login-page.php" method="GET">
-                                    <button class="nav-link text-light fw-bold" name="logout" type="submit">Log out</button>
+                                    <button class="bg-dark nav-link text-light fw-bold" name="logout" type="submit">Log out</button>
                                 </form>
                             </li>
                         <?php } ?>
                         <li>
                             <a class="text-light nav-link position-relative" href="./shopping-cart-page.php">
-                                <img src="./public/theme/img/shopping-cart.png" class="cart_icon" alt=""> <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
-                                    <?php
-                                    if (!empty($_SESSION['cart'])) {
-                                        echo count($_SESSION['cart']);
-                                    } else {
-                                        echo 0;
-                                    }
-                                    ?>
+                                <img src="./public/theme/img/shopping-cart.png" class="cart_icon" alt="">
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark"><?php if (!empty($_SESSION['cart'])) {
+                                                                                                                                echo count($_SESSION['cart']);
+                                                                                                                            } else {
+                                                                                                                                echo 0;
+                                                                                                                            }
+                                                                                                                            ?>
                                 </span>
                             </a>
                         </li>

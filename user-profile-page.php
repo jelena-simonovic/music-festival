@@ -10,7 +10,7 @@ if (!empty($_GET['page'])) {
 }
 // REQUIRE CLASSES
 require_once __DIR__ . "/Models/Model.php";
-require_once __DIR__ . "/Models/Product.php";
+require_once __DIR__ . "/Models/User.php";
 require_once __DIR__ . "/Lib/ShoppingCart.php";
 require_once __DIR__ . "/Lib/ShoppingCartItem.php";
 
@@ -25,7 +25,6 @@ require __DIR__ . "/views/_layout/v-footer.php";
 // USING MODELS
 use Lib\ShoppingCart\ShoppingCart;
 use Models\Model\Model;
-use Models\Product\Product;
 use Models\User\User;
 
 

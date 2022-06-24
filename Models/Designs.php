@@ -34,4 +34,13 @@ class Designs extends Model
             $st->execute();
         }
     }
+    public static function getOneDesignByTitle($title)
+    {
+        $designs = self::getAllDesigns();
+        foreach ($designs as $design) {
+            if ($design->title == $title) {
+                return $design;
+            }
+        }
+    }
 }

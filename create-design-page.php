@@ -31,18 +31,22 @@ if (!empty($_GET['page'])) {
 }
 // REQUIRE CLASSES
 require_once __DIR__ . "/Models/Model.php";
-require_once __DIR__ . "/Models/Product.php";
 require_once __DIR__ . "/Models/Designs.php";
 require_once __DIR__ . "/Lib/ShoppingCart.php";
 require_once __DIR__ . "/Lib/ShoppingCartItem.php";
 
 // USING MODELS
-use Models\Product\Product;
 use Models\Designs\Designs;
 use Lib\ShoppingCart\ShoppingCart;
 
 try {
     $designs = Designs::getAllDesigns();
+    if (isset($_GET['create'])) {
+        $title = $_GET['create'];
+        $design = Designs::getOneDesignByTitle($title);
+    } else if (empty($_GET['create'])) {
+        $title = "Monarch Butterfly";
+    }
 } catch (\Throwable $th) {
     header("Location: ./");
 }
